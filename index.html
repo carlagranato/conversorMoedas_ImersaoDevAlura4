@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Moedas</title>
+    <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">
+          Conversor de moedas
+        </h1>
+        <p class="page-subtitle">
+          Descubra os valores
+        </p>
+        <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg" class="page-logo" alt=""><br><br>
+        <label for="moeda">Insira o valor em dolar</label><br>
+        <input type="number" id="valor" size="2" /><br>
+        <button type="submit" onclick="Converter()">Converter em Real</button>
+        <button type="submit" onclick="ConverterEuro()">Converter em Euro</button>
+        <button type="submit" onclick="ConverterBitcoin()">Converter em Bitcoin</button>
+        <h2 id="valorConvertidoReal"></h2>
+        <h2 id="valorConvertidoEuro"><h2>
+        <h2 id="valorConvertidoBitcoin"><h2>
+      </div>
+      
+      <a href="https://alura.com.br/" target="_blank">
+        <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+</body>
+</html>
+
+<script>
+  function Converter() {
+    var valorElemento = document.getElementById("valor");
+    var valor = valorElemento.value; // Pega apenas o valor que foi adicionado no input
+    var valorDolarNumerico = parseFloat(valor); // Converte o input em float (num. decimal)
+    var valorReal = valorDolarNumerico * 5;
+  
+    var elementoValorConvertido = document.getElementById("valorConvertidoReal");
+    var valorConvertidoReal = "O valor em reais é: R$" + valorReal;
+    elementoValorConvertido.innerHTML = valorConvertidoReal; //colocamos dentro do html o valor
+  }
+  
+  function ConverterEuro() {
+    //Desafio 1
+    var valorElemento = document.getElementById("valor");
+    var valor = valorElemento.value;
+    var valorEuroNumerico = parseFloat(valor);
+    var valorEuro = valorEuroNumerico * 0.907345;
+  
+    var elementoValorConvertido = document.getElementById("valorConvertidoEuro");
+    var valorConvertidoEuro = "O valor em euro é: U$" + valorEuro;
+    elementoValorConvertido.innerHTML = valorConvertidoEuro;
+  }
+  
+  function ConverterBitcoin() {
+    //Desafio 4
+    var valorElemento = document.getElementById("valor");
+    var valor = valorElemento.value;
+    var valorBitcoinNumerico = parseFloat(valor);
+    var valorBitcoin = valorBitcoinNumerico * 0.000026;
+  
+    var elementoValorConvertido = document.getElementById(
+      "valorConvertidoBitcoin"
+    );
+    var valorConvertidoBitcoin = "O valor em Bitcoin é: B" + valorBitcoin;
+    elementoValorConvertido.innerHTML = valorConvertidoBitcoin;
+  }
+</script>
